@@ -1,9 +1,9 @@
 .DS_Store
-.dart_tool/
+
 
 .pub/
 
-.idea/
+
 .vagrant/
 .sconsign.dblite
 .svn/
@@ -36,9 +36,7 @@ xcuserdata
 Icon?
 .tags*
 
-build/
-.android/
-.ios/
+
 .flutter-plugins
 .flutter-plugins-dependencies
 
