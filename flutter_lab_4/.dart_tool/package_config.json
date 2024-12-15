@@ -194,13 +194,13 @@
       "languageVersion": "3.4"
     },
     {
-      "name": "flutter_lab_4",
+      "name": "Calendar",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-12-09T12:24:24.426266Z",
+  "generated": "2024-12-11T19:38:15.998596Z",
   "generator": "pub",
   "generatorVersion": "3.5.4",
   "flutterRoot": "file:///E:/flutter/flutter",

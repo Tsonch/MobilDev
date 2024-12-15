@@ -1,4 +1,4 @@
-#Mon Dec 09 16:58:48 YEKT 2024
+#Thu Dec 12 00:40:32 YEKT 2024
 base.0=E\:\\mobilka\\flutter_lab_4\\build\\host\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=E\:\\mobilka\\flutter_lab_4\\build\\host\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
 base.2=E\:\\mobilka\\flutter_lab_4\\build\\host\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex

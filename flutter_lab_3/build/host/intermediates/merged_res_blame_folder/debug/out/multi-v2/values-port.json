@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.flutter_lab_3.host.app-mergeDebugResources-28:/values-port/values-port.xml",
+            "outputFile": "com.example.flutter_lab_3.host.app-mergeDebugResources-41:/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-3\\b1f8124010f785703da170e50a9c0230\\transformed\\appcompat-1.0.2\\res\\values-port\\values-port.xml",
+                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-3\\758e254ae8941ffef5dfb85975502183\\transformed\\appcompat-1.1.0\\res\\values-port\\values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -11,9 +11,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>flutter_lab_4</string>
+	<string>Calendar</string>
 	<key>CFBundleDisplayName</key>
-	<string>Flutter Lab 4</string>
+	<string>Calendar</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

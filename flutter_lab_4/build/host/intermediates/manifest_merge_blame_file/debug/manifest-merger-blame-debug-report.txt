@@ -56,8 +56,8 @@
 41        android:extractNativeLibs="true"
 42        android:icon="@mipmap/ic_launcher"
 42-->E:\mobilka\flutter_lab_4\.android\app\src\main\AndroidManifest.xml:13:9-43
-43        android:label="flutter_lab_4" >
-43-->E:\mobilka\flutter_lab_4\.android\app\src\main\AndroidManifest.xml:12:9-38
+43        android:label="Calendar" >
+43-->E:\mobilka\flutter_lab_4\.android\app\src\main\AndroidManifest.xml:12:9-33
 44        <activity
 44-->E:\mobilka\flutter_lab_4\.android\app\src\main\AndroidManifest.xml:14:9-33:20
 45            android:name="com.example.flutter_lab_4.host.MainActivity"
