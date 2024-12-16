@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lab_3/pages/add.dart';
 import 'package:flutter_lab_3/pages/edit.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+void main() async {
+
+  await Hive.initFlutter();
+  await Hive.openBox('ToDoBox');
 
   runApp(const MyApp());
 }
@@ -10,20 +14,18 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/main',
-      routes: {
-        '/main' : (context) => MainPage(),
-        '/add' : (context) => AddPage(),
-        '/edit' : (context) => EditPage()
-      },
-      title: 'main',
+      title: 'ToDo',
       theme: ThemeData(),
-      home: const MainPage(),
+      home: MainPage(),
+      routes: { 
+        '/main': (context) => MainPage(),
+        '/add' : (context) => AddPage(),
+        '/edit' : (context) => EditPage(),
+      }
     );
   }
 }
@@ -37,35 +39,196 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
 
+  final List<String> filters = ["all", "Done", "Not Done"];
+  String? selectedFilter;
+  List? filteredTasks; 
+
+  final toDoBox = Hive.box('ToDoBox'); 
+
+  @override
+  void initState() {
+    super.initState();
+    selectedFilter = filters[0];
+    filteredTasks = toDoBox.values.toList();
+  }
+
+  void getTasks() {
+    if(selectedFilter == "Done") {
+      filteredTasks = toDoBox.values.where((value) {
+        return value['isDone'] == true;
+      }).toList();
+    }
+    else if(selectedFilter == "Not Done") {
+      filteredTasks = toDoBox.values.where((value) {
+        return value['isDone'] == false;
+      }).toList();
+    }
+    else {
+      filteredTasks = toDoBox.values.toList();
+    }
+  }
+
+  Future<void> _navigateAndRefresh(route, index) async {
+    final result;
+    if (route == '/edit') {
+      result = await Navigator.pushNamed(context, route, arguments: index);
+    }
+    else {
+      result = await Navigator.pushNamed(context, route);
+    }
+
+    if (result == true) {
+      setState(() {
+        getTasks();
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-  
     return Scaffold(
       appBar: AppBar(
-        title: Text('ToDo',
-        style: TextStyle(
-          color: Colors.white
-          ),
-        ),
-        backgroundColor: Colors.deepPurple,
+        title: Text("ToDo"),
+        backgroundColor: Colors.green,
       ),
-      body: Center( 
-          child: Column (
-            children: [
-              
-            ],
-          ),
+      body: Center(
+        child: Column(
+         children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Wrap(
+              spacing: 10,
+              children:
+                filters.map((filter) {
+                  return ChoiceChip(
+                    label: Text(filter, 
+                      style: TextStyle(
+                        fontSize: 18
+                      ),
+                    ),
+                    selected: selectedFilter == filter,
+                    selectedColor: Colors.green[400],
+                    onSelected: (isSelected) {
+                      setState(() {
+                        selectedFilter = isSelected ? filter : filters[0];
+                      });
+                      getTasks();
+                    }
+                  );
+                }).toList(),
+              ),
+            ),
+            Column(
+              children:
+                List<Widget>.generate(filteredTasks!.length, (index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black, width: 2),
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(filteredTasks![index]['title'],
+                              style: TextStyle(
+                                fontSize: 24
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 8, left: 8, bottom: 8),
+                            child: Text(filteredTasks![index]['description'], 
+                              style: TextStyle(
+                                fontSize: 18
+                              ),
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.green
+                                  ),
+                                  onPressed: () => {
+                                    setState(() {
+                                      filteredTasks![index]["isDone"] = true;
+                                      getTasks();
+                                    })
+                                  } ,
+                                  child: Text("Done",
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.white
+                                    ),
+                                  )
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.red
+                                  ),
+                                  onPressed: () => {
+                                    setState(() {
+                                      toDoBox.deleteAt(index);
+                                      getTasks();
+                                    })
+                                  },
+                                  child: Text("Delete", 
+                                    style: TextStyle(
+                                      fontSize: 20, 
+                                      color: Colors.white
+                                    ),
+                                  )
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.grey
+                                  ),
+                                  onPressed: () => {
+                                    _navigateAndRefresh('/edit', index)
+                                  },
+                                  child: Text("Edit", 
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.white
+                                    ),
+                                  )
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                })
+            )
+          ],
         ),
-        floatingActionButton: FloatingActionButton(
+      ),
+      floatingActionButton: FloatingActionButton(
         onPressed: () => {
-          Navigator.pushNamed(context, '/add')
+          _navigateAndRefresh('/add', "")
+          // toDoBox.clear()
+          // print(filteredTasks)
         },
-        tooltip: 'Добавить',
-        child: Icon(
-          Icons.add,
+        child: const Icon(Icons.add, 
+          size: 34,
           color: Colors.white,
         ),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: Colors.green,
       ),
     );
   }
