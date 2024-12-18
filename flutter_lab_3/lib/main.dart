@@ -41,7 +41,7 @@ class _MainPageState extends State<MainPage> {
 
   final List<String> filters = ["all", "Done", "Not Done"];
   String? selectedFilter;
-  List? filteredTasks; 
+  List filteredTasks = []; 
 
   final toDoBox = Hive.box('ToDoBox'); 
 
@@ -118,9 +118,10 @@ class _MainPageState extends State<MainPage> {
                 }).toList(),
               ),
             ),
+            filteredTasks.isEmpty ? Center(child: Text('Нет запланированных задач', style: TextStyle(fontSize: 22, color: Colors.black),),) : 
             Column(
-              children:
-                List<Widget>.generate(filteredTasks!.length, (index) {
+              children: 
+                List<Widget>.generate(filteredTasks.length, (index) {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
@@ -134,7 +135,7 @@ class _MainPageState extends State<MainPage> {
                         children: [
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Text(filteredTasks![index]['title'],
+                            child: Text(filteredTasks[index]['title'],
                               style: TextStyle(
                                 fontSize: 24
                               ),
@@ -142,7 +143,7 @@ class _MainPageState extends State<MainPage> {
                           ),
                           Padding(
                             padding: const EdgeInsets.only(right: 8, left: 8, bottom: 8),
-                            child: Text(filteredTasks![index]['description'], 
+                            child: Text(filteredTasks[index]['description'], 
                               style: TextStyle(
                                 fontSize: 18
                               ),
@@ -158,7 +159,7 @@ class _MainPageState extends State<MainPage> {
                                   ),
                                   onPressed: () => {
                                     setState(() {
-                                      filteredTasks![index]["isDone"] = true;
+                                      filteredTasks[index]["isDone"] = true;
                                       getTasks();
                                     })
                                   } ,
