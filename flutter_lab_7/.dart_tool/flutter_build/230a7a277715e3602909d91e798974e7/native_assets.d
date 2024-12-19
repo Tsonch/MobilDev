@@ -1,0 +1,1 @@
+ E:\\mobilka\\flutter_lab_7\\.dart_tool\\flutter_build\\230a7a277715e3602909d91e798974e7\\native_assets.yaml: 
