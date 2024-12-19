@@ -30,11 +30,7 @@ group = "com.example.flutter_lab_1"
 version = "1.0"
 
 android {
-    // Conditional for compatibility with AGP <4.2.
-    if (project.android.hasProperty("namespace")) {
-        namespace = "com.example.flutter_lab_1"
-    }
-
+    namespace = "com.example.flutter_lab_1"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 

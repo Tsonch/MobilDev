@@ -1,13 +1,13 @@
-#Thu Dec 12 13:50:36 YEKT 2024
-base.0=E\:\\mobilka\\flutter_lab_5\\build\\host\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=E\:\\mobilka\\flutter_lab_5\\build\\host\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
-base.2=E\:\\mobilka\\flutter_lab_5\\build\\host\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.3=E\:\\mobilka\\flutter_lab_5\\build\\host\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
-path.0=classes.dex
-path.1=0/classes.dex
-path.2=0/classes.dex
+#Fri Dec 20 02:01:25 YEKT 2024
 path.3=7/classes.dex
-renamed.0=classes.dex
-renamed.1=classes2.dex
-renamed.2=classes3.dex
+path.2=0/classes.dex
+path.1=0/classes.dex
+path.0=classes.dex
+base.3=E\:\\mobilka\\flutter_lab_5\\build\\host\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
+base.2=E\:\\mobilka\\flutter_lab_5\\build\\host\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.1=E\:\\mobilka\\flutter_lab_5\\build\\host\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
+base.0=E\:\\mobilka\\flutter_lab_5\\build\\host\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 renamed.3=classes4.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex

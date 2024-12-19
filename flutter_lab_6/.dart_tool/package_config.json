@@ -704,13 +704,13 @@
       "languageVersion": "3.0"
     },
     {
-      "name": "flutter_lab_6",
+      "name": "FoodApp",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.6"
     }
   ],
-  "generated": "2024-12-17T11:19:10.358545Z",
+  "generated": "2024-12-19T21:02:17.715061Z",
   "generator": "pub",
   "generatorVersion": "3.6.0",
   "flutterRoot": "file:///E:/flutter/flutter",

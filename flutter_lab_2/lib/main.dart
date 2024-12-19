@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lab_2/pages/cerrency.dart';
-import 'package:flutter_lab_2/pages/length.dart';
-import 'package:flutter_lab_2/pages/temperature.dart';
-import 'package:flutter_lab_2/pages/time.dart';
-import 'package:flutter_lab_2/pages/weight.dart';
+import 'package:Converter/pages/cerrency.dart';
+import 'package:Converter/pages/length.dart';
+import 'package:Converter/pages/temperature.dart';
+import 'package:Converter/pages/time.dart';
+import 'package:Converter/pages/weight.dart';
 
 void main() => runApp(const MyApp());
 

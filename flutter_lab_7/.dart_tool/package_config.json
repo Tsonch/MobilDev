@@ -560,13 +560,13 @@
       "languageVersion": "2.19"
     },
     {
-      "name": "flutter_lab_7",
+      "name": "News",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.6"
     }
   ],
-  "generated": "2024-12-19T20:27:06.751948Z",
+  "generated": "2024-12-19T21:04:59.225366Z",
   "generator": "pub",
   "generatorVersion": "3.6.0",
   "flutterRoot": "file:///E:/flutter/flutter",

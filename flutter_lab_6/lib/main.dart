@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_lab_6/pages/favorite.dart';
+import 'package:FoodApp/pages/favorite.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
